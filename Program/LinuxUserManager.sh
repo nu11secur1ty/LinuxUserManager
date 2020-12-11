@@ -19,7 +19,7 @@ do
         		
             ;;
         "Moving users to groups")
-			echo -e "\e[31mMove your new user to your new group by giving as the name of your new group...\e[0m"
+		echo -e "\e[31mMove your new user to your new group by giving as the name of your new group...\e[0m"
         	read move
                 usermod -a -G $move $new_user
 		echo -e "\e[31mDone, now you can see your new user, where is he...\e[0m"
