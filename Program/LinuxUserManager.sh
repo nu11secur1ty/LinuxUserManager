@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 # usermanaget 0.01 by nu11secur1ty
 # Menu
+echo ""
+echo -e "\e[34mWELCOME TO THE USER MANAGER PROGRAM by OPS from V.Varbanovski\nSystem Administrator - Infrastructure, and Linux architect\e[0m"
+ 
 
 PS3='Please enter your choice: '
-options=("Creating of users and groups" "Moving users to groups" "Delete user and group" "Quit")
+options=("Creating of users and groups" "Moving users to groups" "Delete users and groups" "Create user with directory" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -31,7 +34,7 @@ do
                 cat /etc/group | grep $move_user
             
             ;;
-        "Delete user and group")
+        "Delete users and groups")
 		echo -e "\e[31mDeleating users and groups by giving as the names...\e[0m"
                 echo "the group"
                 read move_group_exist
@@ -45,6 +48,15 @@ do
                 cat /etc/group | grep $move_user_exist
 		cat /etc/group | grep $move_group_exist
             	
+            ;;
+    	"Create user with directory")
+		echo -e "\e[31mCreate your new user with home directory, give the name...\e[0m"
+                read new_user_homedir
+                useradd -d $new_user_homedir
+                        echo""
+                echo -e "\e[31mDone, now you can see your new user, where is he...\e[0m"
+                cat /etc/group | grep $new_user_homedir
+
             ;;
         "Quit")
             exit 0
