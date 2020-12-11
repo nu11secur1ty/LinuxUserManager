@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# usermanaget 0.01 by OPS 2020
+# LinuxUserManager 0.01 by OPS 2020
 # Author @nu11secur1ty
 # Developers V.Varbanovski and G.Djankushev
 # Menu
