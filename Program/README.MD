@@ -1,1 +1,1 @@
-# the program
+# Linux User Manager for Beginners Linux users
