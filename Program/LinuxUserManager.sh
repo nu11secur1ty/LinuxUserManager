@@ -3,7 +3,7 @@
 # Menu
 
 PS3='Please enter your choice: '
-options=("Creating of users and groups" "Move user to group" "Delete user and group" "Quit")
+options=("Creating of users and groups" "Moving users to groups" "Delete user and group" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -16,15 +16,14 @@ do
 		echo -e "\e[31mCreate your new group for your new user, give the name...\e[0m"
         	read new_group
                 groupadd $new_group
-        		echo""
-		echo -e "\e[31mMove your new user to your new group by giving as the name of your new group...\e[0m"
+        		
+            ;;
+        "Moving users to groups")
+			echo -e "\e[31mMove your new user to your new group by giving as the name of your new group...\e[0m"
         	read move
                 usermod -a -G $move $new_user
 		echo -e "\e[31mDone, now you can see your new user, where is he...\e[0m"
                 cat /etc/group | grep $new_user
-             
-            ;;
-        "Move user to group")
             
             ;;
         "Delete user and group")
