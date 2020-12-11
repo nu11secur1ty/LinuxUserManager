@@ -18,8 +18,7 @@ do
                 groupadd $new_group
 		echo -e "\e[31mDone, now you can see your new user, where is he...\e[0m"
                 cat /etc/group | grep $new_user
-
-        		
+       		
             ;;
         "Moving users to groups")
 		echo -e "\e[31mMove your new user to your new group by giving as the names...\e[0m"
@@ -40,6 +39,8 @@ do
                 read move_user_exist
                 groupdel $move_group_exist
 		userdel $move_user_exist
+			rm -rf /home/$move_user_exist
+			rm -rf /var/mail/$move_user_exist
 		echo -e "\e[31mDone, now you can see where is your user and your group =)...\e[0m"
                 cat /etc/group | grep $move_user_exist
 		cat /etc/group | grep $move_group_exist
