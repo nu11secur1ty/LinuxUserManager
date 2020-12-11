@@ -7,8 +7,7 @@
 2. Run the program as root user
 3. follow the steps
 
-- - - NOTE: This a release 1
-soon we will be building more options... ;)
+- - - NOTE: This is release 1, soon we will be building more options on release 2 or directly 3... ;)
 
 Good luck dear newbies =)
 BR @nu11secur1ty
