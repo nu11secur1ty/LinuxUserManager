@@ -1,2 +1,14 @@
 # LinuxUserManager, the program for Beginners Linux users
 [![](https://github.com/nu11secur1ty/LinuxUserManager/blob/main/Program/logo/user_manager.jpg)](https://github.com/nu11secur1ty/LinuxUserManager/tree/main/Program)
+
+-  - - Usage:
+
+1. Download the program
+2. Run the program as root user
+3. follow the steps
+
+- - - NOTE: This a release 1
+soon we will be building more options... ;)
+
+Good luck dear newbies =)
+BR @nu11secur1ty
