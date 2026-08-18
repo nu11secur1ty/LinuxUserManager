@@ -374,10 +374,8 @@ SOFTWARE.
 
 ## 👏 Acknowledgments
 
-### Development Team
+### Development 
 
-- **V. Varbanovski** - Lead Developer & System Architect
-- **G. Dzhankushev** - Developer & Tester
 - **@nu11secur1ty** - Project Creator & Maintainer
 
 ### Special Thanks
