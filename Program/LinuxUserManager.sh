@@ -84,7 +84,8 @@ create_user_full() {
     echo -e "${BLUE}${BOLD}║          CREATE USER - FULL OPTIONS                  ║${NC}"
     echo -e "${BLUE}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
-    read -p "$(echo -e ${GREEN}Enter username: ${NC})" username
+    echo -e "${GREEN}Enter username: ${NC}"
+    read username
     
     if user_exists "$username"; then
         echo -e "${RED}ERROR: User '$username' already exists!${NC}"
@@ -92,7 +93,8 @@ create_user_full() {
     fi
     
     # User ID
-    read -p "$(echo -e ${GREEN}Enter UID (leave empty for auto): ${NC})" uid
+    echo -e "${GREEN}Enter UID (leave empty for auto): ${NC}"
+    read uid
     if [[ -n "$uid" ]]; then
         if [[ ! "$uid" =~ ^[0-9]+$ ]] || [[ "$uid" -lt 1000 ]]; then
             echo -e "${RED}ERROR: UID must be a number >= 1000!${NC}"
@@ -104,7 +106,8 @@ create_user_full() {
     fi
     
     # Home directory
-    read -p "$(echo -e ${GREEN}Enter home directory (default: /home/$username): ${NC})" homedir
+    echo -e "${GREEN}Enter home directory (default: /home/$username): ${NC}"
+    read homedir
     if [[ -z "$homedir" ]]; then
         HOMEDIR="/home/$username"
     else
@@ -112,7 +115,8 @@ create_user_full() {
     fi
     
     # Create home directory option
-    read -p "$(echo -e ${GREEN}Create home directory? (y/n): ${NC})" create_home
+    echo -e "${GREEN}Create home directory? (y/n): ${NC}"
+    read create_home
     if [[ "$create_home" == "y" || "$create_home" == "Y" ]]; then
         HOME_OPT="-d $HOMEDIR -m"
     else
@@ -126,7 +130,8 @@ create_user_full() {
     echo "3) /bin/zsh"
     echo "4) /usr/bin/fish"
     echo "5) /sbin/nologin (no login)"
-    read -p "$(echo -e ${GREEN}Select shell (1-5, default 1): ${NC})" shell_choice
+    echo -e "${GREEN}Select shell (1-5, default 1): ${NC}"
+    read shell_choice
     case $shell_choice in
         2) SHELL="/bin/sh" ;;
         3) SHELL="/bin/zsh" ;;
@@ -136,7 +141,8 @@ create_user_full() {
     esac
     
     # Primary group
-    read -p "$(echo -e ${GREEN}Enter primary group (default: same as username): ${NC})" primary_group
+    echo -e "${GREEN}Enter primary group (default: same as username): ${NC}"
+    read primary_group
     if [[ -n "$primary_group" ]]; then
         if ! group_exists "$primary_group"; then
             echo -e "${YELLOW}Group '$primary_group' does not exist. Creating...${NC}"
@@ -148,7 +154,8 @@ create_user_full() {
     fi
     
     # Additional groups
-    read -p "$(echo -e ${GREEN}Enter additional groups (comma-separated, e.g., sudo,docker): ${NC})" additional_groups
+    echo -e "${GREEN}Enter additional groups (comma-separated, e.g., sudo,docker): ${NC}"
+    read additional_groups
     if [[ -n "$additional_groups" ]]; then
         GROUPS_OPT="-G $additional_groups"
     else
@@ -156,7 +163,8 @@ create_user_full() {
     fi
     
     # Comment / Full name
-    read -p "$(echo -e ${GREEN}Enter full name / comment (optional): ${NC})" comment
+    echo -e "${GREEN}Enter full name / comment (optional): ${NC}"
+    read comment
     if [[ -n "$comment" ]]; then
         COMMENT_OPT="-c \"$comment\""
     else
@@ -164,7 +172,8 @@ create_user_full() {
     fi
     
     # Expiry date
-    read -p "$(echo -e ${GREEN}Enter expiry date (YYYY-MM-DD, leave empty for none): ${NC})" expiry
+    echo -e "${GREEN}Enter expiry date (YYYY-MM-DD, leave empty for none): ${NC}"
+    read expiry
     if [[ -n "$expiry" ]]; then
         EXPIRY_OPT="-e $expiry"
     else
@@ -172,9 +181,11 @@ create_user_full() {
     fi
     
     # Password
-    read -sp "$(echo -e ${GREEN}Enter password: ${NC})" password
+    echo -e "${GREEN}Enter password: ${NC}"
+    read -s password
     echo ""
-    read -sp "$(echo -e ${GREEN}Confirm password: ${NC})" password_confirm
+    echo -e "${GREEN}Confirm password: ${NC}"
+    read -s password_confirm
     echo ""
     
     if [[ "$password" != "$password_confirm" ]]; then
@@ -209,16 +220,19 @@ create_user_simple() {
     echo -e "${BLUE}${BOLD}║          CREATE USER - SIMPLE                        ║${NC}"
     echo -e "${BLUE}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
-    read -p "$(echo -e ${GREEN}Enter username: ${NC})" username
+    echo -e "${GREEN}Enter username: ${NC}"
+    read username
     
     if user_exists "$username"; then
         echo -e "${RED}ERROR: User '$username' already exists!${NC}"
         return 1
     fi
     
-    read -sp "$(echo -e ${GREEN}Enter password: ${NC})" password
+    echo -e "${GREEN}Enter password: ${NC}"
+    read -s password
     echo ""
-    read -sp "$(echo -e ${GREEN}Confirm password: ${NC})" password_confirm
+    echo -e "${GREEN}Confirm password: ${NC}"
+    read -s password_confirm
     echo ""
     
     if [[ "$password" != "$password_confirm" ]]; then
@@ -250,7 +264,8 @@ delete_user() {
     
     list_users
     echo ""
-    read -p "$(echo -e ${GREEN}Enter username to delete: ${NC})" username
+    echo -e "${GREEN}Enter username to delete: ${NC}"
+    read username
     
     if ! user_exists "$username"; then
         echo -e "${RED}ERROR: User '$username' does not exist!${NC}"
@@ -258,9 +273,11 @@ delete_user() {
     fi
     
     echo -e "${YELLOW}WARNING: You are about to delete user '$username'${NC}"
-    read -p "$(echo -e ${RED}Remove home directory and mail spool? (y/n): ${NC})" remove_home
+    echo -e "${RED}Remove home directory and mail spool? (y/n): ${NC}"
+    read remove_home
     
-    read -p "$(echo -e ${RED}Are you sure you want to delete this user? (y/n): ${NC})" confirm
+    echo -e "${RED}Are you sure you want to delete this user? (y/n): ${NC}"
+    read confirm
     
     if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
         echo -e "${YELLOW}Operation cancelled.${NC}"
@@ -289,16 +306,19 @@ manage_groups() {
     echo "5) List groups"
     echo "6) Back to main menu"
     
-    read -p "$(echo -e ${GREEN}Select option (1-6): ${NC})" group_opt
+    echo -e "${GREEN}Select option (1-6): ${NC}"
+    read group_opt
     
     case $group_opt in
         1)
-            read -p "$(echo -e ${GREEN}Enter group name: ${NC})" groupname
+            echo -e "${GREEN}Enter group name: ${NC}"
+            read groupname
             if group_exists "$groupname"; then
                 echo -e "${RED}ERROR: Group '$groupname' already exists!${NC}"
                 return 1
             fi
-            read -p "$(echo -e ${GREEN}Enter GID (leave empty for auto): ${NC})" gid
+            echo -e "${GREEN}Enter GID (leave empty for auto): ${NC}"
+            read gid
             if [[ -n "$gid" ]]; then
                 groupadd -g "$gid" "$groupname"
             else
@@ -311,7 +331,8 @@ manage_groups() {
             fi
             ;;
         2)
-            read -p "$(echo -e ${GREEN}Enter group name to delete: ${NC})" groupname
+            echo -e "${GREEN}Enter group name to delete: ${NC}"
+            read groupname
             if ! group_exists "$groupname"; then
                 echo -e "${RED}ERROR: Group '$groupname' does not exist!${NC}"
                 return 1
@@ -320,12 +341,14 @@ manage_groups() {
             echo -e "${GREEN}✓ Group '$groupname' deleted.${NC}"
             ;;
         3)
-            read -p "$(echo -e ${GREEN}Enter username: ${NC})" username
+            echo -e "${GREEN}Enter username: ${NC}"
+            read username
             if ! user_exists "$username"; then
                 echo -e "${RED}ERROR: User '$username' does not exist!${NC}"
                 return 1
             fi
-            read -p "$(echo -e ${GREEN}Enter group name: ${NC})" groupname
+            echo -e "${GREEN}Enter group name: ${NC}"
+            read groupname
             if ! group_exists "$groupname"; then
                 echo -e "${RED}ERROR: Group '$groupname' does not exist!${NC}"
                 return 1
@@ -334,12 +357,14 @@ manage_groups() {
             echo -e "${GREEN}✓ User '$username' added to group '$groupname'.${NC}"
             ;;
         4)
-            read -p "$(echo -e ${GREEN}Enter username: ${NC})" username
+            echo -e "${GREEN}Enter username: ${NC}"
+            read username
             if ! user_exists "$username"; then
                 echo -e "${RED}ERROR: User '$username' does not exist!${NC}"
                 return 1
             fi
-            read -p "$(echo -e ${GREEN}Enter group name: ${NC})" groupname
+            echo -e "${GREEN}Enter group name: ${NC}"
+            read groupname
             if ! group_exists "$groupname"; then
                 echo -e "${RED}ERROR: Group '$groupname' does not exist!${NC}"
                 return 1
@@ -367,7 +392,8 @@ modify_user() {
     
     list_users
     echo ""
-    read -p "$(echo -e ${GREEN}Enter username to modify: ${NC})" username
+    echo -e "${GREEN}Enter username to modify: ${NC}"
+    read username
     
     if ! user_exists "$username"; then
         echo -e "${RED}ERROR: User '$username' does not exist!${NC}"
@@ -389,11 +415,13 @@ modify_user() {
     echo "9) Set account expiry"
     echo "10) Back to main menu"
     
-    read -p "$(echo -e ${GREEN}Select option (1-10): ${NC})" mod_opt
+    echo -e "${GREEN}Select option (1-10): ${NC}"
+    read mod_opt
     
     case $mod_opt in
         1)
-            read -p "$(echo -e ${GREEN}Enter new UID: ${NC})" new_uid
+            echo -e "${GREEN}Enter new UID: ${NC}"
+            read new_uid
             if [[ ! "$new_uid" =~ ^[0-9]+$ ]] || [[ "$new_uid" -lt 1000 ]]; then
                 echo -e "${RED}ERROR: UID must be a number >= 1000!${NC}"
                 return 1
@@ -402,7 +430,8 @@ modify_user() {
             echo -e "${GREEN}✓ UID changed to $new_uid${NC}"
             ;;
         2)
-            read -p "$(echo -e ${GREEN}Enter new primary group name: ${NC})" new_group
+            echo -e "${GREEN}Enter new primary group name: ${NC}"
+            read new_group
             if ! group_exists "$new_group"; then
                 echo -e "${RED}ERROR: Group '$new_group' does not exist!${NC}"
                 return 1
@@ -411,7 +440,8 @@ modify_user() {
             echo -e "${GREEN}✓ Primary group changed to '$new_group'${NC}"
             ;;
         3)
-            read -p "$(echo -e ${GREEN}Enter new home directory: ${NC})" new_home
+            echo -e "${GREEN}Enter new home directory: ${NC}"
+            read new_home
             usermod -d "$new_home" "$username"
             echo -e "${GREEN}✓ Home directory changed to $new_home${NC}"
             ;;
@@ -422,7 +452,8 @@ modify_user() {
             echo "3) /bin/zsh"
             echo "4) /usr/bin/fish"
             echo "5) /sbin/nologin"
-            read -p "$(echo -e ${GREEN}Select shell (1-5): ${NC})" shell_choice
+            echo -e "${GREEN}Select shell (1-5): ${NC}"
+            read shell_choice
             case $shell_choice in
                 2) new_shell="/bin/sh" ;;
                 3) new_shell="/bin/zsh" ;;
@@ -434,7 +465,8 @@ modify_user() {
             echo -e "${GREEN}✓ Shell changed to $new_shell${NC}"
             ;;
         5)
-            read -p "$(echo -e ${GREEN}Enter new full name/comment: ${NC})" new_comment
+            echo -e "${GREEN}Enter new full name/comment: ${NC}"
+            read new_comment
             usermod -c "$new_comment" "$username"
             echo -e "${GREEN}✓ Comment changed to '$new_comment'${NC}"
             ;;
@@ -450,7 +482,8 @@ modify_user() {
             passwd "$username"
             ;;
         9)
-            read -p "$(echo -e ${GREEN}Enter expiry date (YYYY-MM-DD): ${NC})" exp_date
+            echo -e "${GREEN}Enter expiry date (YYYY-MM-DD): ${NC}"
+            read exp_date
             usermod -e "$exp_date" "$username"
             echo -e "${GREEN}✓ Expiry date set to $exp_date${NC}"
             ;;
@@ -483,7 +516,8 @@ while true; do
     echo -e "${BOLD}${WHITE}║                                                           ║${NC}"
     echo -e "${BOLD}${WHITE}╚═══════════════════════════════════════════════════════════╝${NC}"
     echo ""
-    read -p "$(echo -e ${BLUE}Enter your choice: ${NC})" choice
+    echo -e "${BLUE}Enter your choice: ${NC}"
+    read choice
     
     case $choice in
         1) create_user_full ;;
@@ -494,7 +528,8 @@ while true; do
         6) list_users ;;
         7) list_groups ;;
         8)
-            read -p "$(echo -e ${GREEN}Enter username: ${NC})" username
+            echo -e "${GREEN}Enter username: ${NC}"
+            read username
             if user_exists "$username"; then
                 echo -e "${CYAN}User info for '$username':${NC}"
                 id "$username"
@@ -505,7 +540,8 @@ while true; do
             else
                 echo -e "${RED}User '$username' does not exist!${NC}"
             fi
-            read -p "Press Enter to continue..."
+            echo -e "${YELLOW}Press Enter to continue...${NC}"
+            read
             ;;
         9)
             echo -e "${CYAN}Currently logged-in users:${NC}"
@@ -514,7 +550,8 @@ while true; do
             echo ""
             echo -e "${CYAN}Last logins:${NC}"
             last -n 5
-            read -p "Press Enter to continue..."
+            echo -e "${YELLOW}Press Enter to continue...${NC}"
+            read
             ;;
         0)
             echo -e "${GREEN}${BOLD}Thank you for using User Manager Pro!${NC}"
