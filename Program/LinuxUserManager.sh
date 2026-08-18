@@ -512,7 +512,7 @@ while true; do
     echo -e "${BOLD}${WHITE}║  ${GREEN}7)${NC} List All Groups                                       ${WHITE}║${NC}"
     echo -e "${BOLD}${WHITE}║  ${GREEN}8)${NC} Show User Info                                        ${WHITE}║${NC}"
     echo -e "${BOLD}${WHITE}║  ${GREEN}9)${NC} Show Logged-in Users                                  ${WHITE}║${NC}"
-    echo -e "${BOLD}${WHITE}║  ${RED}0)${NC} Exit                                                ${WHITE}║${NC}"
+    echo -e "${BOLD}${WHITE}║  ${RED}0)${NC} Exit                                                  ${WHITE}║${NC}"
     echo -e "${BOLD}${WHITE}║                                                           ║${NC}"
     echo -e "${BOLD}${WHITE}╚═══════════════════════════════════════════════════════════╝${NC}"
     echo ""
