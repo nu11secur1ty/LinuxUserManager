@@ -95,39 +95,39 @@
 git clone https://github.com/nu11secur1ty/LinuxUserManager.git
 
 # Navigate to the directory
-cd LinuxUserManager
+cd LinuxUserManager/Program/
 
 # Make the script executable
-chmod +x usermanager.sh
+chmod +x LinuxUserManager.sh
 
 # Run the script as root
-sudo ./usermanager.sh
+sudo ./LinuxUserManager.sh
 ```
 
 ### Method 2: Direct Download
 
 ```bash
 # Download the script directly
-wget https://raw.githubusercontent.com/nu11secur1ty/LinuxUserManager/main/usermanager.sh
+wget https://raw.githubusercontent.com/nu11secur1ty/LinuxUserManager/refs/heads/main/Program/LinuxUserManager.sh
 
 # Make it executable
-chmod +x usermanager.sh
+chmod +x LinuxUserManager.sh
 
 # Run as root
-sudo ./usermanager.sh
+sudo ./LinuxUserManager.sh
 ```
 
 ### Method 3: System-wide Installation
 
 ```bash
 # Install to system path
-sudo cp usermanager.sh /usr/local/bin/usermanager
+sudo cp LinuxUserManager.sh /usr/local/bin/LinuxUserManager
 
 # Make it executable
-sudo chmod +x /usr/local/bin/usermanager
+sudo chmod +x /usr/local/bin/LinuxUserManager
 
 # Now you can run it from anywhere
-sudo usermanager
+sudo LinuxUserManager
 ```
 
 ---
