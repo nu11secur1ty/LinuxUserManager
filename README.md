@@ -231,6 +231,10 @@ Enter group name: docker
 ---
 
 ## 🎬 Demo
+- ALWAYS CHECK for the LATEST VERSION!
+```
+git pull
+```
 
 <p align="center">
   <a href="https://github.com/nu11secur1ty/LinuxUserManager/blob/main/demo/UserManager.gif">
