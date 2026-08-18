@@ -403,6 +403,6 @@ If this project helped you, please give it a ⭐ on GitHub!
 
 ---
 
-**Made with ❤️ by the OPS Team**
+**Made with ❤️ by nu11secur1ty**
 
 *"Empowering Linux administrators, one user at a time."*
