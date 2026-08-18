@@ -138,7 +138,7 @@ sudo usermanager
 
 1. **Run the script as root:**
    ```bash
-   sudo ./usermanager.sh
+   sudo ./LinuxUserManager.sh
    ```
 
 2. **The main menu will appear:**
