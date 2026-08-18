@@ -217,7 +217,7 @@ create_user_full() {
 # Function to create user (simple)
 create_user_simple() {
     echo -e "${BLUE}${BOLD}╔═══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${BLUE}${BOLD}║          CREATE USER - SIMPLE                        ║${NC}"
+    echo -e "${BLUE}${BOLD}║          CREATE USER - SIMPLE                         ║${NC}"
     echo -e "${BLUE}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
     echo -e "${GREEN}Enter username: ${NC}"
@@ -259,7 +259,7 @@ create_user_simple() {
 # Function to delete user
 delete_user() {
     echo -e "${RED}${BOLD}╔═══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${RED}${BOLD}║          DELETE USER                                ║${NC}"
+    echo -e "${RED}${BOLD}║          DELETE USER                                  ║${NC}"
     echo -e "${RED}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
     list_users
@@ -296,7 +296,7 @@ delete_user() {
 # Function to manage groups
 manage_groups() {
     echo -e "${MAGENTA}${BOLD}╔═══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${MAGENTA}${BOLD}║          GROUP MANAGEMENT                           ║${NC}"
+    echo -e "${MAGENTA}${BOLD}║          GROUP MANAGEMENT                             ║${NC}"
     echo -e "${MAGENTA}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
     echo "1) Create group"
@@ -387,7 +387,7 @@ manage_groups() {
 # Function to modify user
 modify_user() {
     echo -e "${YELLOW}${BOLD}╔═══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${YELLOW}${BOLD}║          MODIFY USER                               ║${NC}"
+    echo -e "${YELLOW}${BOLD}║          MODIFY USER                                  ║${NC}"
     echo -e "${YELLOW}${BOLD}╚═══════════════════════════════════════════════════════╝${NC}"
     
     list_users
