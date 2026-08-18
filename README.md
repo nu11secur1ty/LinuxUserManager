@@ -389,11 +389,9 @@ SOFTWARE.
 
 ---
 
-## 📞 Contact & Support
+## Support
 
 - **GitHub Issues:** [Report a bug](https://github.com/nu11secur1ty/LinuxUserManager/issues)
-- **Email:** (nu11secur1typentest@gmail.com)
-- **Twitter:** [@nu11secur1ty](https://twitter.com/nu11secur1ty1)
 
 ---
 
