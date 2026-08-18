@@ -37,7 +37,7 @@ show_header() {
     echo "║      ╚██████╔╝███████║███████║██║  ██║                      ║"
     echo "║       ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝                      ║"
     echo "║                                                              ║"
-    echo "║              USER MANAGER PRO v2.0                           ║"
+    echo "║              USER MANAGER PRO v3.0                           ║"
     echo "║         System Administration Tool                          ║"
     echo "║                                                              ║"
     echo "╚══════════════════════════════════════════════════════════════╝"
