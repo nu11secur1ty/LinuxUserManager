@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 #=====================================================================
-# User Manager Pro v2.0 by OPS Team
+# User Manager Pro v3.0 by OPS Team
 # Author: System Admin Team
-# Version: 2.0
+# Version: 3.0
 # Compatible with: Ubuntu 22.04/24.04, Debian 12, RHEL 9, Fedora
 #=====================================================================
 
